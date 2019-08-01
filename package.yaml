@@ -1,0 +1,68 @@
+name: scratchpad
+default-extensions:
+
+  # Notable
+
+  - StrictData
+
+  # Other
+
+  - DataKinds
+  - DeriveAnyClass
+  - DeriveFunctor
+  - DeriveGeneric
+  - DerivingStrategies
+  - ExistentialQuantification
+  - FlexibleContexts
+  - FlexibleInstances
+  - FunctionalDependencies
+  - GADTs
+  - GeneralizedNewtypeDeriving
+  - InstanceSigs
+  - LambdaCase
+  - MultiParamTypeClasses
+  - NamedFieldPuns
+  - NoImplicitPrelude
+  - OverloadedStrings
+  - RankNTypes
+  - ScopedTypeVariables
+  - TypeFamilies
+  - TypeOperators
+
+ghc-options: -Wall
+dependencies:
+
+  # Notable
+
+  # none atm
+
+  # Other
+
+  - aeson
+  - async
+  - base
+  - bytestring
+  - containers
+  - directory
+  - filepath
+  - hashable
+  - lens
+  - mtl
+  - optparse-applicative
+  - profunctors
+  - random
+  - safe-exceptions
+  - stm
+  - text
+  - time
+  - transformers
+  - unliftio
+  - unordered-containers
+
+tests:
+  spec:
+    source-dirs: .
+    main: Spec.hs
+    dependencies:
+      - hspec
+      - QuickCheck

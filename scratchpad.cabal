@@ -1,0 +1,46 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: c751f70baaf91f1dbd2d393b7536883e241462a48e888456f9d938fcdfae086d
+
+name:           scratchpad
+version:        0.0.0
+build-type:     Simple
+
+test-suite spec
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Strong
+      Paths_scratchpad
+  hs-source-dirs:
+      ./.
+  default-extensions: StrictData DataKinds DeriveAnyClass DeriveFunctor DeriveGeneric DerivingStrategies ExistentialQuantification FlexibleContexts FlexibleInstances FunctionalDependencies GADTs GeneralizedNewtypeDeriving InstanceSigs LambdaCase MultiParamTypeClasses NamedFieldPuns NoImplicitPrelude OverloadedStrings RankNTypes ScopedTypeVariables TypeFamilies TypeOperators
+  ghc-options: -Wall
+  build-depends:
+      QuickCheck
+    , aeson
+    , async
+    , base
+    , bytestring
+    , containers
+    , directory
+    , filepath
+    , hashable
+    , hspec
+    , lens
+    , mtl
+    , optparse-applicative
+    , profunctors
+    , random
+    , safe-exceptions
+    , stm
+    , text
+    , time
+    , transformers
+    , unliftio
+    , unordered-containers
+  default-language: Haskell2010
