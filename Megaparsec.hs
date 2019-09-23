@@ -34,9 +34,8 @@ import Control.Monad.Combinators.NonEmpty
 --
 --
 -- My strategy is to default to Control.Monad.Combinators.NonEmpty.
--- It's the most efficient and has the most descriptive type signatures.
---
--- (This goes for everyting it exports including @sepBy1@ etc, not just @some@).
+-- It has the most descriptive type signatures and greater than or equal performance
+-- compared to Control.Applicative.Combinators.NonEmpty.
 --
 -- So we import all of Control.Monad.Combinators.NonEmpty
 -- and then hide the clashing names from Text.Megaparsec.
