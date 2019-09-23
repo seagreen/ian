@@ -34,7 +34,9 @@ dependencies:
 
   # Notable
 
-  # none atm
+  - main-tester
+  - megaparsec
+  - parser-combinators
 
   # Other
 

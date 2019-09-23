@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: c751f70baaf91f1dbd2d393b7536883e241462a48e888456f9d938fcdfae086d
+-- hash: 8939605454a5c619c6893b1a85528cb552d5ac9437f1ef86839e5fed9e53667b
 
 name:           scratchpad
 version:        0.0.0
@@ -14,6 +14,7 @@ test-suite spec
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
+      Megaparsec
       Strong
       Paths_scratchpad
   hs-source-dirs:
@@ -32,8 +33,11 @@ test-suite spec
     , hashable
     , hspec
     , lens
+    , main-tester
+    , megaparsec
     , mtl
     , optparse-applicative
+    , parser-combinators
     , profunctors
     , random
     , safe-exceptions
