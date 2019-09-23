@@ -21,8 +21,6 @@ import qualified Data.Text as Text
 --     "The module provides more efficient versions of the combinators from Control.Applicative.Combinators defined in terms of Monad and MonadPlus instead of Applicative and Alternative. When there is no difference in performance we just re-export the combinators from Control.Applicative.Combinators."
 import Control.Monad.Combinators.NonEmpty
 
-import Text.Megaparsec hiding (endBy1, parse, sepBy1, sepEndBy1, some, someTill)
-
 -- Note that there are four(!) modules that provide different versions
 -- of @some@ (six if we count re-exports).
 --
@@ -42,6 +40,7 @@ import Text.Megaparsec hiding (endBy1, parse, sepBy1, sepEndBy1, some, someTill)
 --
 -- So we import all of Control.Monad.Combinators.NonEmpty
 -- and then hide the clashing names from Text.Megaparsec.
+import Text.Megaparsec hiding (endBy1, parse, sepBy1, sepEndBy1, some, someTill)
 
 type Parser = Parsec Void Text
 
