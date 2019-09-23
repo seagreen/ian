@@ -52,14 +52,13 @@ parse p =
     Bifunctor.first (Text.pack . errorBundlePretty)
   . runParser (p <* eof) "<input>"
 
--- Notes on redundant definitions
+-- Notes on redefinitions
 --
--- 'Text.Megaparsec.Char.char' is just a type-constrained version of 'single',
--- so just use that instead.
+-- 'Text.Megaparsec.Char.char' is a type-constrained version of 'single'.
 --
--- 'Text.Megaparsec.Char.string' is just a type-constrained version of 'chunk'.
+-- 'Text.Megaparsec.Char.string' is a type-constrained version of 'chunk'.
 --
--- 'Control.Monad.Combinators.choice' is just 'asum'.
+-- 'Control.Monad.Combinators.choice' is 'asum'.
 
 spec :: Spec
 spec =
@@ -89,7 +88,7 @@ spec =
       parse p "aab" `shouldBe` Right "aab"
 
     it "chunk backtracks" $ do
-      -- (It's just tokens under the hood).
+      -- (It uses tokens under the hood).
       let
         p :: Parser Text
         p = chunk "aaa" <|> chunk "aab"
