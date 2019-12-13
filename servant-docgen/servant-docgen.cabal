@@ -1,0 +1,27 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: cad4a6da49781fa22b725d9110811553d0b86f6330a552222fad747b3160b30b
+
+name:           servant-docgen
+version:        0.0.0
+build-type:     Simple
+
+library
+  exposed-modules:
+      Goal
+      TinyServant
+  other-modules:
+      Paths_servant_docgen
+  hs-source-dirs:
+      src
+  default-extensions: DataKinds ExistentialQuantification FlexibleContexts FlexibleInstances FunctionalDependencies InstanceSigs LambdaCase MultiParamTypeClasses NamedFieldPuns NoImplicitPrelude OverloadedStrings PolyKinds RankNTypes ScopedTypeVariables TypeApplications TypeFamilies TypeOperators
+  ghc-options: -Wall
+  build-depends:
+      base
+    , text
+    , time
+  default-language: Haskell2010

@@ -1,0 +1,28 @@
+name: servant-docgen
+default-extensions:
+  - DataKinds
+  - ExistentialQuantification
+  - FlexibleContexts
+  - FlexibleInstances
+  - FunctionalDependencies
+  - InstanceSigs
+  - LambdaCase
+  - MultiParamTypeClasses
+  - NamedFieldPuns
+  - NoImplicitPrelude
+  - OverloadedStrings
+  - PolyKinds
+  - RankNTypes
+  - ScopedTypeVariables
+  - TypeApplications
+  - TypeFamilies
+  - TypeOperators
+
+ghc-options: -Wall
+dependencies:
+  - base
+  - text
+  - time
+
+library:
+  source-dirs: src
