@@ -1,32 +1,40 @@
 name: scratchpad
+
 default-extensions:
-
-  # Notable
-
-  - StrictData
-
-  # Other
-
+  - BangPatterns
+  - BinaryLiterals
+  - BlockArguments
+  - ConstraintKinds
   - DataKinds
-  - DeriveAnyClass
-  - DeriveFunctor
+  - DefaultSignatures
+  - DeriveDataTypeable
   - DeriveGeneric
+  - DeriveLift
+  - DeriveTraversable
   - DerivingStrategies
+  - EmptyCase
   - ExistentialQuantification
   - FlexibleContexts
   - FlexibleInstances
   - FunctionalDependencies
-  - GADTs
-  - GeneralizedNewtypeDeriving
+  - GeneralisedNewtypeDeriving
+  - HexFloatLiterals
+  - NoImplicitPrelude
   - InstanceSigs
+  - KindSignatures
   - LambdaCase
   - MultiParamTypeClasses
   - NamedFieldPuns
-  - NoImplicitPrelude
+  - NegativeLiterals
+  - NumericUnderscores
   - OverloadedStrings
+  - PackageImports
   - RankNTypes
   - ScopedTypeVariables
-  - TypeFamilies
+  - StandaloneDeriving
+  - StrictData # NOTE: that this is on.
+  - TupleSections
+  - TypeApplications
   - TypeOperators
 
 ghc-options: -Wall
