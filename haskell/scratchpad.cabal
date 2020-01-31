@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 0c7d5f353485b399ac1e43519af40fa5fc9b0bf813cd3c97c1091647a3f9c657
+-- hash: e1ee73dfc7f6cc72f3869f3783342c7fe621ad7e62ede272abb268f690634567
 
 name:           scratchpad
 version:        0.0.0
@@ -19,7 +19,7 @@ test-suite spec
       Paths_scratchpad
   hs-source-dirs:
       ./.
-  default-extensions: BangPatterns BinaryLiterals BlockArguments ConstraintKinds DataKinds DefaultSignatures DeriveDataTypeable DeriveGeneric DeriveLift DeriveTraversable DerivingStrategies EmptyCase ExistentialQuantification FlexibleContexts FlexibleInstances FunctionalDependencies GeneralisedNewtypeDeriving HexFloatLiterals NoImplicitPrelude InstanceSigs KindSignatures LambdaCase MultiParamTypeClasses NamedFieldPuns NegativeLiterals NumericUnderscores OverloadedStrings PackageImports RankNTypes ScopedTypeVariables StandaloneDeriving StrictData TupleSections TypeApplications TypeOperators
+  default-extensions: BangPatterns BinaryLiterals BlockArguments ConstraintKinds DataKinds DefaultSignatures DeriveDataTypeable DeriveGeneric DeriveLift DeriveTraversable DerivingStrategies EmptyCase ExistentialQuantification FlexibleContexts FlexibleInstances FunctionalDependencies GeneralizedNewtypeDeriving HexFloatLiterals NoImplicitPrelude InstanceSigs KindSignatures LambdaCase MultiParamTypeClasses NamedFieldPuns NegativeLiterals NumericUnderscores OverloadedStrings PackageImports RankNTypes ScopedTypeVariables StandaloneDeriving StrictData TupleSections TypeApplications TypeOperators
   ghc-options: -Wall
   build-depends:
       QuickCheck

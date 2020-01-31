@@ -17,7 +17,7 @@ default-extensions:
   - FlexibleContexts
   - FlexibleInstances
   - FunctionalDependencies
-  - GeneralisedNewtypeDeriving
+  - GeneralizedNewtypeDeriving
   - HexFloatLiterals
   - NoImplicitPrelude
   - InstanceSigs
