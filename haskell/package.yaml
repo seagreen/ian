@@ -1,5 +1,6 @@
 name: scratchpad
 
+# NOTE: StrictData is on.
 default-extensions:
   - BangPatterns
   - BinaryLiterals
@@ -32,7 +33,7 @@ default-extensions:
   - RankNTypes
   - ScopedTypeVariables
   - StandaloneDeriving
-  - StrictData # NOTE: that this is on.
+  - StrictData
   - TupleSections
   - TypeApplications
   - TypeOperators
@@ -42,6 +43,7 @@ dependencies:
 
   # Notable
 
+  - hspec
   - main-tester
   - megaparsec
   - parser-combinators
@@ -69,10 +71,14 @@ dependencies:
   - unliftio
   - unordered-containers
 
+library:
+  source-dirs: .
+
 tests:
   spec:
-    source-dirs: .
+    source-dirs: test
     main: Spec.hs
     dependencies:
       - hspec
       - QuickCheck
+      - scratchpad

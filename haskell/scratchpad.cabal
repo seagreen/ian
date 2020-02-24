@@ -4,21 +4,56 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: e1ee73dfc7f6cc72f3869f3783342c7fe621ad7e62ede272abb268f690634567
+-- hash: bed63757eb5faa7d1bd0d300201d2e1b9fc34a129746e5b220077e8ee976359c
 
 name:           scratchpad
 version:        0.0.0
 build-type:     Simple
 
+library
+  exposed-modules:
+      Megaparsec
+      Strong
+  other-modules:
+      Paths_scratchpad
+  hs-source-dirs:
+      ./.
+  default-extensions: BangPatterns BinaryLiterals BlockArguments ConstraintKinds DataKinds DefaultSignatures DeriveDataTypeable DeriveGeneric DeriveLift DeriveTraversable DerivingStrategies EmptyCase ExistentialQuantification FlexibleContexts FlexibleInstances FunctionalDependencies GeneralizedNewtypeDeriving HexFloatLiterals NoImplicitPrelude InstanceSigs KindSignatures LambdaCase MultiParamTypeClasses NamedFieldPuns NegativeLiterals NumericUnderscores OverloadedStrings PackageImports RankNTypes ScopedTypeVariables StandaloneDeriving StrictData TupleSections TypeApplications TypeOperators
+  ghc-options: -Wall
+  build-depends:
+      aeson
+    , async
+    , base
+    , bytestring
+    , containers
+    , directory
+    , filepath
+    , hashable
+    , hspec
+    , lens
+    , main-tester
+    , megaparsec
+    , mtl
+    , optparse-applicative
+    , parser-combinators
+    , profunctors
+    , random
+    , safe-exceptions
+    , stm
+    , text
+    , time
+    , transformers
+    , unliftio
+    , unordered-containers
+  default-language: Haskell2010
+
 test-suite spec
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
-      Megaparsec
-      Strong
       Paths_scratchpad
   hs-source-dirs:
-      ./.
+      test
   default-extensions: BangPatterns BinaryLiterals BlockArguments ConstraintKinds DataKinds DefaultSignatures DeriveDataTypeable DeriveGeneric DeriveLift DeriveTraversable DerivingStrategies EmptyCase ExistentialQuantification FlexibleContexts FlexibleInstances FunctionalDependencies GeneralizedNewtypeDeriving HexFloatLiterals NoImplicitPrelude InstanceSigs KindSignatures LambdaCase MultiParamTypeClasses NamedFieldPuns NegativeLiterals NumericUnderscores OverloadedStrings PackageImports RankNTypes ScopedTypeVariables StandaloneDeriving StrictData TupleSections TypeApplications TypeOperators
   ghc-options: -Wall
   build-depends:
@@ -41,6 +76,7 @@ test-suite spec
     , profunctors
     , random
     , safe-exceptions
+    , scratchpad
     , stm
     , text
     , time
