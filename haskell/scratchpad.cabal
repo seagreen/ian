@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: bed63757eb5faa7d1bd0d300201d2e1b9fc34a129746e5b220077e8ee976359c
+-- hash: 94a105ec483007343c9a5c2c39551e47d3ae977a34c7caa13c256329e460b577
 
 name:           scratchpad
 version:        0.0.0
@@ -13,6 +13,7 @@ build-type:     Simple
 library
   exposed-modules:
       Megaparsec
+      MonoidalLexer
       Strong
   other-modules:
       Paths_scratchpad
