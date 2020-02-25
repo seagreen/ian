@@ -1,18 +1,13 @@
 module MonoidalLexer where
 
 import Control.Monad
-import Prelude
-import Test.Hspec
 import Data.Set (Set)
 import Data.Text (Text)
+import Prelude
+import Test.Hspec
 
 import qualified Data.Set as Set
 import qualified Data.Text as Text
-
-
--- TODO: remove trailing whitespace
-
-
 
 data Lexer a = Lexer
   { keywords :: Set Keyword
@@ -52,13 +47,13 @@ combineLexers (Lexer k1 l1) (Lexer k2 l2) =
       case l1 finalKeywords txt of
         Nothing ->
           l2 finalKeywords txt
-          
+
         res ->
           res
 
 instance Semigroup (Lexer a) where
   (<>) = combineLexers
-  
+
 instance Monoid (Lexer a) where
   mempty = emptyLexer
 
@@ -84,7 +79,7 @@ getNonWhitespace input = do
     (txt, remaining) = Text.span (/= ' ') input
   guard (not (Text.null txt))
   Just (txt, Text.dropWhile (== ' ') remaining)
-  
+
 dropWhitespaceOrEnd :: Text -> Maybe Text
 dropWhitespaceOrEnd t
   | Text.null t        = Just t
