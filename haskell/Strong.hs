@@ -2,10 +2,8 @@
 module Strong where
 
 import Control.Category
-import Control.Monad
 import Data.Profunctor
-import Data.Text (Text)
-import Prelude hiding ((.))
+import ScratchPrelude hiding ((.))
 import Test.Hspec
 import UnliftIO.Exception
 

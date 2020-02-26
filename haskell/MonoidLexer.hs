@@ -1,9 +1,7 @@
-module MonoidalLexer where
+-- | Demonstration of static analysis with a Monoid lexer.
+module MonoidLexer where
 
-import Control.Monad
-import Data.Set (Set)
-import Data.Text (Text)
-import Prelude
+import ScratchPrelude
 import Test.Hspec
 
 import qualified Data.Set as Set
@@ -94,8 +92,8 @@ nextToken input = do
 -- * Example use
 
 data Token
-  = If
-  | Equals
+  = Let
+  | Equal
   | Var Text
   deriving (Eq, Ord, Show)
 
@@ -116,13 +114,13 @@ variableToken =
 exampleLexer :: Lexer Token
 exampleLexer =
      variableToken
-  <> keywordToken "if" If
-  <> keywordToken "==" Equals
+  <> keywordToken "let" Let
+  <> keywordToken "=" Equal
 
 spec :: Spec
 spec =
-  describe "monoidal lexer" $ do
-    it "doesn't parse 'if' keyword as a variable" $ do
-      runLexer exampleLexer "if a == b"
+  describe "monoid lexer" $ do
+    it "doesn't parse 'let' keyword as a variable" $ do
+      runLexer exampleLexer "let a = b"
         `shouldBe`
-          Just [If, Var "a", Equals, Var "b"]
+          Just [Let, Var "a", Equal, Var "b"]

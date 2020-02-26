@@ -1,15 +1,17 @@
 module Main where
 
-import Prelude
+import ScratchPrelude
 import Test.Hspec
 
+import qualified ApplicativeParser
 import qualified Megaparsec
-import qualified MonoidalLexer
+import qualified MonoidLexer
 import qualified Strong
 
 main :: IO ()
 main =
   hspec $ do
+    ApplicativeParser.spec
     Megaparsec.spec
-    MonoidalLexer.spec
+    MonoidLexer.spec
     Strong.spec
