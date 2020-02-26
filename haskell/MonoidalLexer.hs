@@ -12,12 +12,14 @@ import qualified Data.Text as Text
 data Lexer a = Lexer
   { keywords :: Set Keyword
   , getToken :: Set Keyword -> Text -> Maybe (Text, a)
+    -- ^ Parse a single token.
   }
 
 newtype Keyword
   = Keyword Text
   deriving (Eq, Ord, Show)
 
+-- | Calls 'getToken' repeatedly to build a list of @a@ tokens.
 runLexer
   :: Lexer a
   -> Text -- ^ Input to lex
@@ -35,8 +37,9 @@ emptyLexer =
     , getToken = \_ _ -> Nothing
     }
 
+-- | Left-biased.
 combineLexers :: forall a. Lexer a -> Lexer a -> Lexer a
-combineLexers (Lexer k1 l1) (Lexer k2 l2) =
+combineLexers (Lexer k1 getToken1) (Lexer k2 getToken2) =
   Lexer
     { keywords = k1 <> k2
     , getToken = getTok
@@ -44,9 +47,9 @@ combineLexers (Lexer k1 l1) (Lexer k2 l2) =
   where
     getTok :: Set Keyword -> Text -> Maybe (Text, a)
     getTok finalKeywords txt =
-      case l1 finalKeywords txt of
+      case getToken1 finalKeywords txt of
         Nothing ->
-          l2 finalKeywords txt
+          getToken2 finalKeywords txt
 
         res ->
           res
@@ -62,8 +65,8 @@ keywordToken tokText tok =
   Lexer
     { keywords = Set.singleton (Keyword tokText)
     , getToken =
-        \_keywords input -> do
-          (candidateTok, remaining) <- getNonWhitespace input
+        \_ input -> do
+          (candidateTok, remaining) <- nextToken input
           if candidateTok == tokText
             then
               Just (remaining, tok)
@@ -71,20 +74,22 @@ keywordToken tokText tok =
               Nothing
     }
 
--- | Returns a tuple whose first @Text@ is the remaining input,
--- and whose second @Text@ is a potential token.
-getNonWhitespace :: Text -> Maybe (Text, Text)
-getNonWhitespace input = do
+-- | Helper function.
+--
+-- Separates the input on the first space character.
+--
+-- Returns a tuple whose first @Text@ is what came before the space,
+-- and whose second @Text@ is the remaining input after it
+-- with leading spaces stripped.
+nextToken :: Text -> Maybe (Text, Text)
+nextToken input = do
   let
-    (txt, remaining) = Text.span (/= ' ') input
-  guard (not (Text.null txt))
-  Just (txt, Text.dropWhile (== ' ') remaining)
-
-dropWhitespaceOrEnd :: Text -> Maybe Text
-dropWhitespaceOrEnd t
-  | Text.null t        = Just t
-  | Text.head t == ' ' = Just (Text.dropWhile (== ' ') t)
-  | otherwise          = Nothing
+    (tok, remaining) = Text.span (/= ' ') input
+  if Text.null tok
+    then
+      Nothing
+    else
+      Just (tok, Text.dropWhile (== ' ') remaining)
 
 -- * Example use
 
@@ -94,13 +99,13 @@ data Token
   | Var Text
   deriving (Eq, Ord, Show)
 
-exampleVar :: Lexer Token
-exampleVar =
+variableToken :: Lexer Token
+variableToken =
   Lexer
     { keywords = mempty
     , getToken =
         \finalKeywords input -> do
-          (candidateTok, remaining) <- getNonWhitespace input
+          (candidateTok, remaining) <- nextToken input
           if Set.member (Keyword candidateTok) finalKeywords
             then
               Nothing
@@ -110,12 +115,14 @@ exampleVar =
 
 exampleLexer :: Lexer Token
 exampleLexer =
-  exampleVar <> keywordToken "if" If <> keywordToken "==" Equals
+     variableToken
+  <> keywordToken "if" If
+  <> keywordToken "==" Equals
 
 spec :: Spec
 spec =
   describe "monoidal lexer" $ do
-    it "1" $ do
+    it "doesn't parse 'if' keyword as a variable" $ do
       runLexer exampleLexer "if a == b"
         `shouldBe`
           Just [If, Var "a", Equals, Var "b"]
