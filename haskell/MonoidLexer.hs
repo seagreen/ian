@@ -1,4 +1,4 @@
--- | Demonstration of static analysis with a Monoid lexer.
+-- | Demonstration of static analysis with a Monoid-equipped lexer.
 module MonoidLexer where
 
 import ScratchPrelude

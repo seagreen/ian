@@ -6,6 +6,7 @@ import Test.Hspec
 import qualified ApplicativeParser
 import qualified Megaparsec
 import qualified MonoidLexer
+import qualified ProfunctorParser
 import qualified Strong
 
 main :: IO ()
@@ -14,4 +15,5 @@ main =
     ApplicativeParser.spec
     Megaparsec.spec
     MonoidLexer.spec
+    ProfunctorParser.spec
     Strong.spec

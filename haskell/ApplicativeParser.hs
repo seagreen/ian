@@ -85,7 +85,7 @@ parseVariable =
     -- to maintain a list of them, and keep it in sync
     -- with the parser code.
     --
-    -- But here we can pull it out of THIN. AIR.
+    -- But here we pull it out of THIN. AIR.
     runP :: Set Keyword -> Text -> Maybe (Text, Text)
     runP finalKeywords input = do
       let

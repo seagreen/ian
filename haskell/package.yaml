@@ -47,6 +47,7 @@ dependencies:
   - main-tester
   - megaparsec
   - parser-combinators
+  - profunctors
 
   # Other
 
