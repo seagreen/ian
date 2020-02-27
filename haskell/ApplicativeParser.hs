@@ -1,10 +1,6 @@
 -- | Demonstration of static analysis with an Applicative parser.
 --
 -- + This is a toy example showing tracking of keywords.
---
--- + Applicative parsers without Alternative aren't very useful,
---   but an instance could be easily added
---   (can't add a Monad instance though and keep the static analysis).
 module ApplicativeParser where
 
 import ScratchPrelude
@@ -56,6 +52,10 @@ instance Applicative Parser where
       }
 
   liftA2 = lift2Parser
+
+-- If we wanted to make this module really useful
+-- we'd also write an Alternative instance,
+-- which we could do and still keep static analysis (unlike Monad).
 
 parseKeyword :: Text -> Parser ()
 parseKeyword keyword =

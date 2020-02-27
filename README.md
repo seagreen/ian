@@ -1,11 +1,17 @@
-# About
+# Code
 
-Issue tracker for my questions about tech.
+### Static analysis of parsers
 
-(The actual repo just contains random snippets.)
++ [Profunctor example](./haskell/ProfunctorParser.hs)
 
-# Why
++ [Applicative example](./haskell/ApplicativeParser.hs)
 
-Q/A sites edit and delete questions. I may crosspost to them, but I want a place to keep the originals.
++ [Monoid (lexer) example](./haskell/MonoidLexer.hs)
 
-Timeline sites bury questions. I want a place where they stay up until I close them.
+# Issue tracker
+
+Used by me to track tech questions I have.
+
+I prefer this to Q/A sites because they may edit or delete questions. I can still crosspost them, but this way I can keep the originals online as well.
+
+It's also better than timeline based sites like twitter because they stay prominent in the UI until I close them.

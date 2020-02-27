@@ -8,6 +8,7 @@ import Data.Profunctor
 import ScratchPrelude hiding ((.))
 import Test.Hspec
 
+import qualified Data.Char as Char
 import qualified Data.Set as Set
 import qualified Data.Text as Text
 
@@ -95,10 +96,10 @@ parseKeyword keyword =
           Just (Text.dropWhile (== ' ') remaining, ())
     }
 
--- * Example use
+-- * Simple example
 
-parseVariable :: Parser () Text
-parseVariable =
+parseNonKeywordToken :: Parser () Text
+parseNonKeywordToken =
   Parser
     { keywords = mempty
     , runParserWithKeywords = runP
@@ -125,29 +126,97 @@ data Var
   = Var Text
   deriving (Eq, Show)
 
-exampleParser :: Parser () Var
-exampleParser =
+simpleParser :: Parser () Var
+simpleParser =
   parseKeyword "start"
-    >>> fmap Var parseVariable
+    >>> rmap Var parseNonKeywordToken
     >>> rmap (\(var, ()) -> var)
           (lmap (\var -> (var, ()))
             (second'
               (parseKeyword "end")))
 
-spec :: Spec
-spec =
-  describe "profunctor parser" $ do
+simpleSpec :: Spec
+simpleSpec =
+  describe "simple profunctor parser" $ do
     it "success" $ do
-      runParser exampleParser "start a end"
+      runParser simpleParser "start foo end"
         `shouldBe`
-          Just ("", Var "a")
+          Just ("", Var "foo")
 
     it "doesn't allow a keyword as a variable" $ do
-      runParser exampleParser "start start end"
+      runParser simpleParser "start start end"
         `shouldBe`
           Nothing
 
     it "simple failure" $ do
-      runParser exampleParser "start a asdf"
+      runParser simpleParser "start foo asdf"
         `shouldBe`
           Nothing
+
+-- * Full example
+
+-- | Parse @start@,
+-- then a text token of letters that must only appear capitalized later
+-- then a variable under the previous restriction
+-- then @end@
+-- then return the variable.
+fullParser :: Parser () Var
+fullParser = do
+  parseKeyword "start"
+    >>> parseNonKeywordToken
+    >>> capitalizationRestrictedVar
+    >>> rmap (\(var, ()) -> var)
+          (lmap (\var -> (var, ()))
+            (second'
+              (parseKeyword "end")))
+
+capitalizationRestrictedVar :: Parser Text Var
+capitalizationRestrictedVar =
+  lmap (\caps -> (caps, ())) (second' (rmap Var parseNonKeywordToken))
+    >>> checkCaps
+  where
+    checkCaps :: Parser (Text, Var) Var
+    checkCaps =
+      Parser
+        { keywords = mempty -- We're not introducing any new keywords here.
+        , runParserWithKeywords = runP
+        }
+      where
+        runP :: Set Keyword -> Text -> (Text, Var) -> Maybe (Text, Var)
+        runP _ input (caps, Var varText) =
+          if allCapitalized caps varText
+            then
+              Just (input, Var varText)
+            else
+              Nothing
+
+        allCapitalized :: Text -> Text -> Bool
+        allCapitalized caps =
+          Text.all (\c -> Char.isUpper c || not (inCapList c))
+          where
+            inCapList :: Char -> Bool
+            inCapList c =
+              Text.singleton (Char.toLower c) `Text.isInfixOf` Text.toLower caps
+
+fullSpec :: Spec
+fullSpec =
+  describe "full profunctor parser" $ do
+    it "success" $ do
+      runParser fullParser "start HL HeLLo end"
+        `shouldBe`
+          Just ("", Var "HeLLo")
+
+    it "failure due to uncapitalized h" $ do
+      runParser fullParser "start HL hello end"
+        `shouldBe`
+          Nothing
+
+    it "failure due to keyword used as variable" $ do
+      runParser fullParser "start X end end"
+        `shouldBe`
+          Nothing
+
+spec :: Spec
+spec = do
+  simpleSpec
+  fullSpec
