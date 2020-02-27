@@ -27,8 +27,8 @@ runParser Parser{keywords, runParserWithKeywords} =
 
 instance Functor Parser where
   fmap :: (a -> b) -> Parser a -> Parser b
-  fmap f p  =
-    p { runParserWithKeywords = (fmap.fmap.fmap) f . runParserWithKeywords p }
+  fmap f p@(Parser _ runP)  =
+    p { runParserWithKeywords = (fmap.fmap.fmap) f . runP }
 
 lift2Parser :: forall a b c. (a -> b -> c) -> Parser a -> Parser b -> Parser c
 lift2Parser f (Parser k1 p1) (Parser k2 p2) =
