@@ -14,11 +14,11 @@ For instance, imagine you're parsing a language with a certain number of keyword
 
 However, if you restrict your parser to just Applicative (and Alternative) you don't have to track that list separately, but can assemble it as you combine parsers together with `<*>`.
 
-Applicative+Alternative is pretty powerful, but doesn't give later parsers access to the results of earlier ones. This can be done with Category based parsers, which when equipped with Profunctor and Strong begins to come close to\* the power of Monadic parsers.
+Applicative+Alternative is pretty powerful, but doesn't give later parsers access to the results of earlier ones. This can be done with Category based parsers, which when equipped with Profunctor and Strong begins to come close to[\*] the power of Monadic parsers.
 
 Examples of Applicative and Profunctor based parsers are provided, as well as a Monoid-based lexer for a simpler example if you find the others confusing.
 
-\* Or reaches? I'm not sure.
+[\*] Or reaches? I'm not sure.
 
 # Issue tracker
 
