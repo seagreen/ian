@@ -8,9 +8,9 @@
 
 + [Monoid (lexer) example](./haskell/MonoidLexer.hs)
 
-Monadic parser combinators are popular, but don't allow any static analysis.
+Monadic parser combinators are popular, but this comes at the expense of static analysis.
 
-For instance, imagine you're parsing a language with a certain number of keywords like `let`, `case`, etc. You'd like to forbid the more general variable parser from parsing those keywords. With monadic parser combinators you have to maintain a list of keywords in your source code to be used by the variable parser, which could go out of sync with the actual keywords your language contains.
+For instance, imagine you're parsing a language with a certain number of keywords like `let`, `case`, etc. You also have a variable parser that you'd like to forbid from parsing those keywords. With monadic parser combinators you have to maintain a list of keywords in your source code to be used by the variable parser, which could go out of sync with the actual keywords your language contains.
 
 However, if you restrict your parser to just Applicative (and Alternative) you don't have to track that list separately, but can assemble it as you combine parsers together with `<*>`.
 
