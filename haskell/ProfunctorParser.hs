@@ -130,10 +130,14 @@ simpleParser :: Parser () Var
 simpleParser =
   parseKeyword "start"
     >>> rmap Var parseNonKeywordToken
-    >>> rmap (\(var, ()) -> var)
-          (lmap (\var -> (var, ()))
-            (second'
-              (parseKeyword "end")))
+    >>> passThrough (parseKeyword "end")
+
+-- | Better name?
+passThrough :: Strong p => p () x -> p a a
+passThrough =
+    lmap (\a -> (a, ()))
+  . rmap (\(a, _x) -> a)
+  . second'
 
 simpleSpec :: Spec
 simpleSpec =
@@ -165,10 +169,7 @@ fullParser = do
   parseKeyword "start"
     >>> parseNonKeywordToken
     >>> capitalizationRestrictedVar
-    >>> rmap (\(var, ()) -> var)
-          (lmap (\var -> (var, ()))
-            (second'
-              (parseKeyword "end")))
+    >>> passThrough (parseKeyword "end")
 
 capitalizationRestrictedVar :: Parser Text Var
 capitalizationRestrictedVar =
