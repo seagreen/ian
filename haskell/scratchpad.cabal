@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: d3e05372a52215b8b077e8532b6ae1013181be4b96315bc496050991d586da7d
+-- hash: 6e98834fed96687d09d9f13019e7a81fb11ba952c7260e4f0729cedc9aea3a32
 
 name:           scratchpad
 version:        0.0.0
@@ -33,6 +33,7 @@ library
     , bytestring
     , comonad
     , containers
+    , contravariant
     , directory
     , filepath
     , hashable
@@ -74,6 +75,7 @@ test-suite spec
     , bytestring
     , comonad
     , containers
+    , contravariant
     , directory
     , filepath
     , hashable

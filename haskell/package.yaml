@@ -59,6 +59,7 @@ dependencies:
   - base
   - bytestring
   - comonad
+  - contravariant
   - containers
   - directory
   - filepath

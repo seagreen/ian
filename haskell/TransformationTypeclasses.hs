@@ -4,12 +4,14 @@ import Control.Category (Category)
 import Control.Comonad (Comonad)
 import Control.Selective (Selective)
 import Data.Functor.Contravariant (Contravariant)
+import Data.Functor.Contravariant.Divisible (Divisible)
 import Prelude (Applicative, Either, Functor, Monad, flip)
 
 import qualified Control.Category as Category
 import qualified Control.Comonad as Comonad
 import qualified Control.Selective as Selective
 import qualified Data.Functor.Contravariant as Contravariant
+import qualified Data.Functor.Contravariant.Divisible as Divisible
 import qualified Prelude
 
 ($)        ::                     (a ->   b) ->           a    ->     b
@@ -20,7 +22,8 @@ extend     :: Comonad     f => (f  a ->   b) -> f         a    -> f   b
 (<<<)      :: Category    c =>  c  a      b  -> c x       a    -> c x b
 flipSelect :: Selective   f =>  f (a ->   b) -> f (Either a b) -> f   b
 
-contramap :: Contravariant f => (b -> a) -> f a -> f b
+contramap :: Contravariant f => (b ->  a    ) -> f a        -> f b
+divide    :: Divisible     f => (b -> (a, x)) -> f a -> f x -> f b
 
 ($) = (Prelude.$)
 fmap = Prelude.fmap
@@ -31,3 +34,4 @@ extend = Comonad.extend
 flipSelect = flip Selective.select
 
 contramap = Contravariant.contramap
+divide = Divisible.divide
