@@ -1,4 +1,4 @@
-module TypeclassComparison where
+module TransformationTypeclasses where
 
 import Control.Category (Category)
 import Prelude (Applicative, Functor, Monad)

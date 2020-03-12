@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 5d85ec1ca7e69906d6f9d1f2c16a4e6463db2009c5e60f0a5a6804328068fac2
+-- hash: 5edacdae336edd55a49cc25b191776b07f3dfa743021faa4db5e261289d45fda
 
 name:           scratchpad
 version:        0.0.0
@@ -19,7 +19,7 @@ library
       ScratchPrelude
       Strong
       StrongCategory
-      TypeclassComparison
+      TransformationTypeclasses
   other-modules:
       Paths_scratchpad
   hs-source-dirs:
