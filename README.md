@@ -18,7 +18,7 @@ Applicative+Alternative is pretty powerful, but doesn't give later parsers acces
 
 Examples of Applicative and Profunctor based parsers are provided, as well as a Monoid-based lexer for a simpler example if you find the others confusing.
 
-###
+### Aligned typeclass comparison
 
 Visually aligned type signatures for [transformation-related typeclasses](./haskell/TransformationTypeclasses.hs).
 
