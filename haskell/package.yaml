@@ -57,6 +57,7 @@ dependencies:
   - async
   - base
   - bytestring
+  - comonad
   - containers
   - directory
   - filepath
