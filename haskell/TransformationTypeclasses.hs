@@ -2,20 +2,23 @@ module TransformationTypeclasses where
 
 import Control.Category (Category)
 import Control.Comonad (Comonad)
-import Data.Functor.Contravariant
-import Prelude (Applicative, Functor, Monad)
+import Control.Selective (Selective)
+import Data.Functor.Contravariant (Contravariant)
+import Prelude (Applicative, Either, Functor, Monad, flip)
 
 import qualified Control.Category as Category
 import qualified Control.Comonad as Comonad
+import qualified Control.Selective as Selective
 import qualified Data.Functor.Contravariant as Contravariant
 import qualified Prelude
 
-($)    ::                     (a ->   b) ->     a ->     b
-fmap   :: Functor     f =>    (a ->   b) -> f   a -> f   b
-(<*>)  :: Applicative f =>  f (a ->   b) -> f   a -> f   b
-(=<<)  :: Monad       f =>    (a -> f b) -> f   a -> f   b
-extend :: Comonad     f => (f a  ->   b) -> f   a -> f   b
-(<<<)  :: Category    c =>  c  a      b  -> c x a -> c x b
+($)        ::                     (a ->   b) ->           a    ->     b
+fmap       :: Functor     f =>    (a ->   b) -> f         a    -> f   b
+(<*>)      :: Applicative f =>  f (a ->   b) -> f         a    -> f   b
+(=<<)      :: Monad       f =>    (a -> f b) -> f         a    -> f   b
+extend     :: Comonad     f => (f  a ->   b) -> f         a    -> f   b
+(<<<)      :: Category    c =>  c  a      b  -> c x       a    -> c x b
+flipSelect :: Selective   f =>  f (a ->   b) -> f (Either a b) -> f   b
 
 contramap :: Contravariant f => (b -> a) -> f a -> f b
 
@@ -25,5 +28,6 @@ fmap = Prelude.fmap
 (=<<) = (Prelude.=<<)
 extend = Comonad.extend
 (<<<) = (Category.<<<)
+flipSelect = flip Selective.select
 
 contramap = Contravariant.contramap

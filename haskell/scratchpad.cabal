@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 00de3173150727bdcfb42f6f41582355cb29d0d1c9e045a63dd541cf441a350e
+-- hash: d3e05372a52215b8b077e8532b6ae1013181be4b96315bc496050991d586da7d
 
 name:           scratchpad
 version:        0.0.0
@@ -46,6 +46,7 @@ library
     , profunctors
     , random
     , safe-exceptions
+    , selective
     , semialign
     , stm
     , text
@@ -87,6 +88,7 @@ test-suite spec
     , random
     , safe-exceptions
     , scratchpad
+    , selective
     , semialign
     , stm
     , text

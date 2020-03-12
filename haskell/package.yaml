@@ -48,6 +48,7 @@ dependencies:
   - megaparsec
   - parser-combinators
   - profunctors
+  - selective
   - semialign
   - these
 
