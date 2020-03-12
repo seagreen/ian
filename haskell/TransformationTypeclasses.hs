@@ -14,13 +14,14 @@ import qualified Data.Functor.Contravariant as Contravariant
 import qualified Data.Functor.Contravariant.Divisible as Divisible
 import qualified Prelude
 
-($)        ::                     (a ->   b) ->           a    ->     b
-fmap       :: Functor     f =>    (a ->   b) -> f         a    -> f   b
-(<*>)      :: Applicative f =>  f (a ->   b) -> f         a    -> f   b
-(=<<)      :: Monad       f =>    (a -> f b) -> f         a    -> f   b
-extend     :: Comonad     f => (f  a ->   b) -> f         a    -> f   b
-(<<<)      :: Category    c =>  c  a      b  -> c x       a    -> c x b
-flipSelect :: Selective   f =>  f (a ->   b) -> f (Either a b) -> f   b
+($)        ::                     (a ->   b) ->           a    ->        b
+fmap       :: Functor     f =>    (a ->   b) -> f         a    -> f      b
+(<*>)      :: Applicative f =>  f (a ->   b) -> f         a    -> f      b
+(=<<)      :: Monad       f =>    (a -> f b) -> f         a    -> f      b
+extend     :: Comonad     f => (f  a ->   b) -> f         a    -> f      b
+(.)        ::                     (a ->   b) -> (->) x    a    -> (->) x b
+(<<<)      :: Category    c =>  c  a      b  -> c    x    a    -> c    x b
+flipSelect :: Selective   f =>  f (a ->   b) -> f (Either a b) -> f      b
 
 contramap :: Contravariant f => (b ->  a    ) -> f a        -> f b
 divide    :: Divisible     f => (b -> (a, x)) -> f a -> f x -> f b
@@ -30,6 +31,7 @@ fmap = Prelude.fmap
 (<*>) = (Prelude.<*>)
 (=<<) = (Prelude.=<<)
 extend = Comonad.extend
+(.) = (Prelude..)
 (<<<) = (Category.<<<)
 flipSelect = flip Selective.select
 
