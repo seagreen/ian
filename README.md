@@ -1,5 +1,9 @@
 # Code
 
+#### [./llvm-in-haskell](./llvm-in-haskell)
+
+Examples of how to generate LLVM with Haskell.
+
 ### Static analysis of parsers
 
 + [Applicative example](./haskell/ApplicativeParser.hs)
