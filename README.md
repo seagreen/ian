@@ -1,6 +1,6 @@
 # Code
 
-#### [./llvm-in-haskell](./llvm-in-haskell)
+### [./llvm-in-haskell](./llvm-in-haskell)
 
 Examples of how to generate LLVM with Haskell.
 
