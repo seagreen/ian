@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 6e98834fed96687d09d9f13019e7a81fb11ba952c7260e4f0729cedc9aea3a32
+-- hash: ff09d9dbcc5d7b83d7e06d988007c798abd3107fc984565b9f34e64d1f274261
 
 name:           scratchpad
 version:        0.0.0
@@ -17,6 +17,7 @@ library
       MonoidLexer
       ProfunctorParser
       ScratchPrelude
+      SExpression
       Strong
       StrongCategory
       TransformationTypeclasses
