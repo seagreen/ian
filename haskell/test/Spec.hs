@@ -1,13 +1,12 @@
 module Main where
 
-import ScratchPrelude
-import Test.Hspec
-
 import qualified ApplicativeParser
 import qualified Megaparsec
 import qualified MonoidLexer
 import qualified ProfunctorParser
+import ScratchPrelude
 import qualified Strong
+import Test.Hspec
 
 main :: IO ()
 main =

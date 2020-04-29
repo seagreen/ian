@@ -1,7 +1,10 @@
 module ScratchPrelude
-  ( module ScratchPrelude
-  , module X
-  ) where
+  ( module ScratchPrelude,
+    module X,
+  )
+where
+
+{- ORMOLU_DISABLE -}
 
 -- Re-exports:
 
@@ -35,6 +38,8 @@ import GHC.Stack.Types (HasCallStack)
 
 import qualified Data.Text as Text
 import qualified Prelude
+
+{- ORMOLU_ENABLE -}
 
 identity :: a -> a
 identity a =

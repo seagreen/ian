@@ -85,6 +85,7 @@ restartMachine (Internal f) =
 --
 -- In the body of the examples we're looking at things
 -- from the user's perspective, so we won't use @Internal@.
+
 example1 :: Action () Bool
 example1 =
   rmap decide (getMachineId >>> checkSensorA)
@@ -108,8 +109,8 @@ overLeft :: Action a b -> Action (a, c) (b, c)
 overLeft (Internal f) =
   Internal (\(a, c) -> fmap (\b -> (b, c)) (f a))
 
+-- | And this is what it means to be a Strong profunctor!
 instance Strong Action where
-  -- | And this is what it means to be a Strong profunctor!
   first' :: Action a b -> Action (a, c) (b, c)
   first' = overLeft
 
@@ -132,7 +133,6 @@ example2 =
     duplicate :: a -> (a, a)
     duplicate a =
       (a, a)
-
     decide :: (Int, Int) -> Bool
     decide (aVal, bVal) =
       aVal + bVal > 800
@@ -142,6 +142,5 @@ spec = do
   describe "Machine DSL" $ do
     it "example1" $ do
       restartMachine example1 `shouldReturn` True
-
     it "example2" $ do
       restartMachine example2 `shouldReturn` False

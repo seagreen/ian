@@ -23,12 +23,14 @@ data AssemblyLine a b
   = AssemblyLine [Machine]
 
 data Machine
-  = ConveyerBelt -- ^ No op
+  = -- | No op
+    ConveyerBelt
   | SplitConveyerBelt
-  | Simultaneously Machine Machine -- ^ Two conveyer belts or stations side-by-side
+  | -- | Two conveyer belts or stations side-by-side
+    Simultaneously Machine Machine
   | CoffeeRoaster
   | CoffeeBagger
-  deriving Show
+  deriving (Show)
 
 conveyerBelt :: AssemblyLine a a
 conveyerBelt =
@@ -46,10 +48,8 @@ simultaneously (AssemblyLine xs) (AssemblyLine ys) =
     f = \case
       This a ->
         a
-
       That a ->
         a
-
       These a b ->
         Simultaneously a b
 

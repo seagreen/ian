@@ -1,3 +1,4 @@
+{- ORMOLU_DISABLE -}
 module TransformationTypeclasses where
 
 import Control.Category (Category)
