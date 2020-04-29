@@ -1,4 +1,4 @@
-module SExpresssion where
+module SExpression where
 
 -- http://www-formal.stanford.edu/jmc/recursive.pdf
 -- Recursive Functions of Symbolic Expressions and Their Computation by Machine, Part I
@@ -27,10 +27,8 @@ module SExpresssion where
 -- 2. (m1, · · · , mn) stands for (m1 · (· · ·(mn · NIL)· · ·)).
 -- 3. (m1, · · · , mn · x) stands for (m1 · (· · ·(mn · x)· · ·)).
 
-
 -- (a b) is sugar for (a . (b . NIL))
 -- there's no list sugar for (a . b)
-
 
 -- From the s-cargot package:
 -- https://hackage.haskell.org/package/s-cargot-0.1.4.0/docs/Data-SCargot-Repr.html
