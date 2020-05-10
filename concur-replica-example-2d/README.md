@@ -1,5 +1,7 @@
 # The Problem
 
+![sloc](./misc/generated/sloc.svg)
+
 Making UIs is hard.
 
 # The Solution
@@ -28,8 +30,6 @@ It's so easy.
 \* Caveat: this actually isn't the solution for all UIs. For one thing all the code runs on the server, so there will be more latency than might be acceptable for your application. For another `concur-replica` is a very early-stage project right now.
 
 # In this repo
-
-![sloc](./misc/generated/sloc.svg)
 
 A toy `concur-replica` example that allows users to pilot ships around a shared map.
 
