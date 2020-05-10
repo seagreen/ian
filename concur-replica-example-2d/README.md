@@ -1,6 +1,6 @@
 # The Problem
 
-![sloc](./misc/generated/sloc.svg)
+<img src="./misc/screenshot.png" width="400">
 
 Making UIs is hard.
 
@@ -33,7 +33,7 @@ It's so easy.
 
 A toy `concur-replica` example that allows users to pilot ships around a shared map.
 
-<img src="./misc/screenshot.png" width="400">
+![sloc](./misc/generated/sloc.svg)
 
 To run:
 ```sh
