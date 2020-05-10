@@ -1,6 +1,6 @@
-# The Problem
-
 <img src="./misc/screenshot.png" width="400">
+
+# The Problem
 
 Making UIs is hard.
 
