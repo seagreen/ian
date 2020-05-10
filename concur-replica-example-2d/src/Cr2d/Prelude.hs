@@ -1,13 +1,17 @@
 {-# OPTIONS_GHC -fno-warn-unrecognised-pragmas #-}
+
 -- Normally we use hlint to enforce importing Data.Text as Text,
 -- but here we want to import it as X:
 {-# HLINT ignore "Avoid restricted qualification" #-}
 
 -- | Tweak the @Prelude@. Includes no domain logic.
 module Cr2d.Prelude
-  ( module Cr2d.Prelude
-  , module X
-  ) where
+  ( module Cr2d.Prelude,
+    module X,
+  )
+where
+
+{- ORMOLU_DISABLE -}
 
 -- Re-exports:
 
@@ -42,6 +46,8 @@ import GHC.Stack.Types (HasCallStack)
 
 import qualified Data.Text as Text
 import qualified Prelude
+
+{- ORMOLU_ENABLE -}
 
 identity :: a -> a
 identity a =

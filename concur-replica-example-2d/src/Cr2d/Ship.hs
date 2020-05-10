@@ -4,10 +4,11 @@ import Cr2d.Point
 import Cr2d.Prelude
 
 data Ship = Ship
-  { position :: Point
-  , rotation :: Double
-  , turning :: Turn
-  } deriving (Eq, Show)
+  { position :: Point,
+    rotation :: Double,
+    turning :: Turn
+  }
+  deriving (Eq, Show)
 
 data Turn
   = Port

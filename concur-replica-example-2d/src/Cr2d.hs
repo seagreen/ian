@@ -1,16 +1,15 @@
 module Cr2d where
 
-import Concur.Replica (Attr(..), Attrs, HTML, VDOM(..), clientDriver)
+import Concur.Replica (Attr (..), Attrs, HTML, VDOM (..), clientDriver)
+import qualified Concur.Replica.Run
+import qualified Cr2d.Game as Game
 import Cr2d.Prelude
 import Cr2d.Ship (Ship)
 import Cr2d.UI (startApp)
+import qualified Data.Map as Map
 import Data.Text.Encoding (decodeUtf8)
 import Network.Wai.Middleware.Static (static)
 import Network.WebSockets (defaultConnectionOptions)
-
-import qualified Concur.Replica.Run
-import qualified Cr2d.Game as Game
-import qualified Data.Map as Map
 
 run :: IO ()
 run = do
@@ -36,18 +35,35 @@ updateThread tm ref = do
 
 index :: HTML
 index =
-  [ VLeaf "!doctype" (fl [("html", ABool True)]) Nothing
-  , VNode "html" mempty Nothing
-      [ VNode "head" mempty Nothing
-          [ VLeaf "meta" (fl [("charset", AText "utf-8")]) Nothing
-          , VNode "title" mempty Nothing [VText "Title"]
-          , VLeaf "link" (fl [ ("href", AText "custom.css")
-                             , ("rel", AText "stylesheet")
-                             ]) Nothing
-          ]
-      , VNode "body" mempty Nothing
-          [ VNode "script" (fl [("language", AText "javascript")]) Nothing
-              [ VRawText (decodeUtf8 clientDriver) ]
+  [ VLeaf "!doctype" (fl [("html", ABool True)]) Nothing,
+    VNode
+      "html"
+      mempty
+      Nothing
+      [ VNode
+          "head"
+          mempty
+          Nothing
+          [ VLeaf "meta" (fl [("charset", AText "utf-8")]) Nothing,
+            VNode "title" mempty Nothing [VText "Title"],
+            VLeaf
+              "link"
+              ( fl
+                  [ ("href", AText "custom.css"),
+                    ("rel", AText "stylesheet")
+                  ]
+              )
+              Nothing
+          ],
+        VNode
+          "body"
+          mempty
+          Nothing
+          [ VNode
+              "script"
+              (fl [("language", AText "javascript")])
+              Nothing
+              [VRawText (decodeUtf8 clientDriver)]
           ]
       ]
   ]
