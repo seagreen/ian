@@ -1,0 +1,85 @@
+name: concur-replica-example-2d
+license: BSD3
+default-extensions:
+
+  # Notable
+
+  - StrictData
+
+  # Other
+
+  - BangPatterns
+  - BlockArguments
+  - ConstraintKinds
+  - DataKinds
+  - DefaultSignatures
+  - DeriveDataTypeable
+  - DeriveGeneric
+  - DeriveLift
+  - DeriveTraversable
+  - DerivingStrategies
+  - EmptyCase
+  - ExistentialQuantification
+  - FlexibleContexts
+  - FlexibleInstances
+  - FunctionalDependencies
+  - GeneralizedNewtypeDeriving
+  - InstanceSigs
+  - KindSignatures
+  - LambdaCase
+  - MultiParamTypeClasses
+  - NamedFieldPuns
+  - NegativeLiterals
+  - NoImplicitPrelude
+  - NumericUnderscores
+  - OverloadedStrings
+  - PackageImports
+  - RankNTypes
+  - ScopedTypeVariables
+  - StandaloneDeriving
+  - TupleSections
+  - TypeApplications
+  - TypeOperators
+
+ghc-options: -Wall
+dependencies:
+
+  # Notable
+
+  - concur-core
+  - concur-replica
+  - replica
+  - wai-middleware-static
+  - websockets
+
+  # Other
+
+  - aeson
+  - async
+  - base
+  - bytestring
+  - containers
+  - directory
+  - filepath
+  - hashable
+  - lens
+  - mtl
+  - optparse-applicative
+  - random
+  - stm
+  - text
+  - time
+  - transformers
+  - unordered-containers
+
+library:
+  source-dirs: src
+
+executables:
+  concur-replica-example-2d:
+    source-dirs: .
+    main: Main.hs
+    ghc-options: -threaded -rtsopts
+    dependencies:
+      - concur-replica-example-2d
+      - optparse-applicative

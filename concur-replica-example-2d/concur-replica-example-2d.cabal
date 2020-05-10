@@ -1,0 +1,87 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 3c4a43daf3855f1bbf93065b0e9c5ce9706768b296c24a671a8d7ffc88dbe433
+
+name:           concur-replica-example-2d
+version:        0.0.0
+license:        BSD3
+build-type:     Simple
+
+library
+  exposed-modules:
+      Cr2d
+      Cr2d.Game
+      Cr2d.Picture
+      Cr2d.Point
+      Cr2d.Prelude
+      Cr2d.Replica.Widget
+      Cr2d.Ship
+      Cr2d.UI
+  other-modules:
+      Paths_concur_replica_example_2d
+  hs-source-dirs:
+      src
+  default-extensions: StrictData BangPatterns BlockArguments ConstraintKinds DataKinds DefaultSignatures DeriveDataTypeable DeriveGeneric DeriveLift DeriveTraversable DerivingStrategies EmptyCase ExistentialQuantification FlexibleContexts FlexibleInstances FunctionalDependencies GeneralizedNewtypeDeriving InstanceSigs KindSignatures LambdaCase MultiParamTypeClasses NamedFieldPuns NegativeLiterals NoImplicitPrelude NumericUnderscores OverloadedStrings PackageImports RankNTypes ScopedTypeVariables StandaloneDeriving TupleSections TypeApplications TypeOperators
+  ghc-options: -Wall
+  build-depends:
+      aeson
+    , async
+    , base
+    , bytestring
+    , concur-core
+    , concur-replica
+    , containers
+    , directory
+    , filepath
+    , hashable
+    , lens
+    , mtl
+    , optparse-applicative
+    , random
+    , replica
+    , stm
+    , text
+    , time
+    , transformers
+    , unordered-containers
+    , wai-middleware-static
+    , websockets
+  default-language: Haskell2010
+
+executable concur-replica-example-2d
+  main-is: Main.hs
+  other-modules:
+      Paths_concur_replica_example_2d
+  hs-source-dirs:
+      ./.
+  default-extensions: StrictData BangPatterns BlockArguments ConstraintKinds DataKinds DefaultSignatures DeriveDataTypeable DeriveGeneric DeriveLift DeriveTraversable DerivingStrategies EmptyCase ExistentialQuantification FlexibleContexts FlexibleInstances FunctionalDependencies GeneralizedNewtypeDeriving InstanceSigs KindSignatures LambdaCase MultiParamTypeClasses NamedFieldPuns NegativeLiterals NoImplicitPrelude NumericUnderscores OverloadedStrings PackageImports RankNTypes ScopedTypeVariables StandaloneDeriving TupleSections TypeApplications TypeOperators
+  ghc-options: -Wall -threaded -rtsopts
+  build-depends:
+      aeson
+    , async
+    , base
+    , bytestring
+    , concur-core
+    , concur-replica
+    , concur-replica-example-2d
+    , containers
+    , directory
+    , filepath
+    , hashable
+    , lens
+    , mtl
+    , optparse-applicative
+    , random
+    , replica
+    , stm
+    , text
+    , time
+    , transformers
+    , unordered-containers
+    , wai-middleware-static
+    , websockets
+  default-language: Haskell2010

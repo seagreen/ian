@@ -1,0 +1,16 @@
+resolver: lts-14.18
+extra-deps:
+
+  - git: https://github.com/pkamenarsky/concur-replica.git
+    commit: d282c20eeabcab4ef265f44622f784d8c50ab1f4
+
+  # From concur-replica's stack.yaml
+  #
+  # Includes a fork of concur for these fixes:
+  # https://github.com/pkamenarsky/concur-replica/pull/29
+  - git: https://github.com/pkamenarsky/replica.git
+    commit: 46d2fd3b2c236d573f1d6002eb58cc95b2ba03b9
+  - git: https://github.com/pkamenarsky/concur.git
+    commit: dc5347b35c79654d58fa95716f425ee7248504fb
+    subdirs:
+      - concur-core

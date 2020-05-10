@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+# Specific to my setup since it assumes the executable will be in .bin
+
+watchexec .bin/concur-replica-example-2d --restart
