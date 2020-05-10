@@ -25,7 +25,7 @@ case res of
     -- ...
 ```
 
-It's so easy.
+It's pretty nice.
 
 \* Caveat: this actually isn't the solution for all UIs. For one thing all the code runs on the server, so there will be more latency than might be acceptable for your application. For another `concur-replica` is a very early-stage project right now.
 
