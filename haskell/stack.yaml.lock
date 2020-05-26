@@ -3,7 +3,14 @@
 # For more information, please see the documentation at:
 #   https://docs.haskellstack.org/en/stable/lock_files
 
-packages: []
+packages:
+- completed:
+    hackage: data-sword-0.2.0.2@sha256:997c73059441e4fdde7919965b228a373a6a0ce1150edf4985d0bc3f6e7f278d,1457
+    pantry-tree:
+      size: 439
+      sha256: 5148efd3ab98e8e81c1818eb57586d565b7e2fcfe0618b3ad5e13f78e69413ac
+  original:
+    hackage: data-sword-0.2.0.2
 snapshots:
 - completed:
     size: 524789

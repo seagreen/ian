@@ -1,10 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.31.2.
+-- This file has been generated from package.yaml by hpack version 0.33.0.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: ff09d9dbcc5d7b83d7e06d988007c798abd3107fc984565b9f34e64d1f274261
+-- hash: f61f1865e9f4f6b300cb67df88efcfb1ee260efa7fd5e9ff673534e522f28c72
 
 name:           scratchpad
 version:        0.0.0
@@ -21,6 +21,7 @@ library
       Strong
       StrongCategory
       TransformationTypeclasses
+      Utf8
   other-modules:
       Paths_scratchpad
   hs-source-dirs:
@@ -35,6 +36,7 @@ library
     , comonad
     , containers
     , contravariant
+    , data-sword
     , directory
     , filepath
     , hashable
@@ -77,6 +79,7 @@ test-suite spec
     , comonad
     , containers
     , contravariant
+    , data-sword
     , directory
     , filepath
     , hashable

@@ -43,6 +43,7 @@ dependencies:
 
   # Notable
 
+  - data-sword
   - hspec
   - main-tester
   - megaparsec
