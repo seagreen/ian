@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: f61f1865e9f4f6b300cb67df88efcfb1ee260efa7fd5e9ff673534e522f28c72
+-- hash: 39459962bb18fe50477bce68cd82faa8c181c40fe6b8cdf8f023f4f5b5602ff4
 
 name:           scratchpad
 version:        0.0.0
@@ -18,6 +18,7 @@ library
       ProfunctorParser
       ScratchPrelude
       SExpression
+      StmOnChange
       Strong
       StrongCategory
       TransformationTypeclasses
@@ -49,6 +50,7 @@ library
     , parser-combinators
     , profunctors
     , random
+    , relude
     , safe-exceptions
     , selective
     , semialign
@@ -92,6 +94,7 @@ test-suite spec
     , parser-combinators
     , profunctors
     , random
+    , relude
     , safe-exceptions
     , scratchpad
     , selective
