@@ -8,7 +8,7 @@ COPY --from=dependencies /root/.stack /root/.stack
 COPY . /opt/build
 RUN cd /opt/build && stack install --system-ghc
 
-FROM fpco/stack-build:lts-16.6 as server
+FROM heroku/heroku:18.nightly as server
 WORKDIR /opt/app
 COPY --from=build /root/.local/bin/heroku-docker-haskell .
 RUN adduser --disabled-password newuser
