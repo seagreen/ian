@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+
+# Share cached layers between plain `docker build`
+# and `docker-compose build`.
+#
+# For details:
+# https://stackoverflow.com/a/61872078
+# https://github.com/docker/compose/issues/883
+COMPOSE_DOCKER_CLI_BUILD=true
+
+docker-compose rm -fs
+docker-compose build
+docker-compose up web

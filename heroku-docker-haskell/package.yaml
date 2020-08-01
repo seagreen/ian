@@ -1,0 +1,12 @@
+name: heroku-docker-haskell
+
+executables:
+  heroku-docker-haskell:
+    source-dirs: .
+    main: Main.hs
+    ghc-options: -Wall -threaded -rtsopts -with-rtsopts=-N
+    dependencies:
+      - base
+      - http-types
+      - wai
+      - warp
