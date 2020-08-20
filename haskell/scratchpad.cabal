@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 39459962bb18fe50477bce68cd82faa8c181c40fe6b8cdf8f023f4f5b5602ff4
+-- hash: a4ce6faf0050f787b99caad087856b7ebbfd35e737d077085770635013d6511c
 
 name:           scratchpad
 version:        0.0.0
@@ -27,7 +27,7 @@ library
       Paths_scratchpad
   hs-source-dirs:
       ./.
-  default-extensions: BangPatterns BinaryLiterals BlockArguments ConstraintKinds DataKinds DefaultSignatures DeriveDataTypeable DeriveGeneric DeriveLift DeriveTraversable DerivingStrategies EmptyCase ExistentialQuantification FlexibleContexts FlexibleInstances FunctionalDependencies GeneralizedNewtypeDeriving HexFloatLiterals NoImplicitPrelude InstanceSigs KindSignatures LambdaCase MultiParamTypeClasses NamedFieldPuns NegativeLiterals NumericUnderscores OverloadedStrings PackageImports RankNTypes ScopedTypeVariables StandaloneDeriving StrictData TupleSections TypeApplications TypeOperators
+  default-extensions: BangPatterns BinaryLiterals BlockArguments ConstraintKinds DataKinds DefaultSignatures DeriveAnyClass DeriveDataTypeable DeriveGeneric DeriveLift DeriveTraversable DerivingStrategies EmptyCase ExistentialQuantification FlexibleContexts FlexibleInstances FunctionalDependencies GeneralizedNewtypeDeriving HexFloatLiterals InstanceSigs KindSignatures LambdaCase NamedFieldPuns NegativeLiterals NoImplicitPrelude NumericUnderscores OverloadedStrings PackageImports RankNTypes ScopedTypeVariables StandaloneDeriving StrictData TupleSections TypeApplications TypeOperators
   ghc-options: -Wall
   build-depends:
       aeson
@@ -70,7 +70,7 @@ test-suite spec
       Paths_scratchpad
   hs-source-dirs:
       test
-  default-extensions: BangPatterns BinaryLiterals BlockArguments ConstraintKinds DataKinds DefaultSignatures DeriveDataTypeable DeriveGeneric DeriveLift DeriveTraversable DerivingStrategies EmptyCase ExistentialQuantification FlexibleContexts FlexibleInstances FunctionalDependencies GeneralizedNewtypeDeriving HexFloatLiterals NoImplicitPrelude InstanceSigs KindSignatures LambdaCase MultiParamTypeClasses NamedFieldPuns NegativeLiterals NumericUnderscores OverloadedStrings PackageImports RankNTypes ScopedTypeVariables StandaloneDeriving StrictData TupleSections TypeApplications TypeOperators
+  default-extensions: BangPatterns BinaryLiterals BlockArguments ConstraintKinds DataKinds DefaultSignatures DeriveAnyClass DeriveDataTypeable DeriveGeneric DeriveLift DeriveTraversable DerivingStrategies EmptyCase ExistentialQuantification FlexibleContexts FlexibleInstances FunctionalDependencies GeneralizedNewtypeDeriving HexFloatLiterals InstanceSigs KindSignatures LambdaCase NamedFieldPuns NegativeLiterals NoImplicitPrelude NumericUnderscores OverloadedStrings PackageImports RankNTypes ScopedTypeVariables StandaloneDeriving StrictData TupleSections TypeApplications TypeOperators
   ghc-options: -Wall
   build-depends:
       QuickCheck
