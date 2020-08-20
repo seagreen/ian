@@ -8,6 +8,7 @@ default-extensions:
   - ConstraintKinds
   - DataKinds
   - DefaultSignatures
+  - DeriveAnyClass
   - DeriveDataTypeable
   - DeriveGeneric
   - DeriveLift
@@ -20,13 +21,13 @@ default-extensions:
   - FunctionalDependencies
   - GeneralizedNewtypeDeriving
   - HexFloatLiterals
-  - NoImplicitPrelude
   - InstanceSigs
   - KindSignatures
   - LambdaCase
   - MultiParamTypeClasses
   - NamedFieldPuns
   - NegativeLiterals
+  - NoImplicitPrelude
   - NumericUnderscores
   - OverloadedStrings
   - PackageImports
