@@ -80,7 +80,7 @@ dependencies:
   - unordered-containers
 
 library:
-  source-dirs: .
+  source-dirs: src
 
 tests:
   spec:

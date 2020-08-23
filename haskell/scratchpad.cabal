@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: a4ce6faf0050f787b99caad087856b7ebbfd35e737d077085770635013d6511c
+-- hash: 046636f4c52edde17f9f0f0210cad96f08e355bbd080c687074e6034568e3089
 
 name:           scratchpad
 version:        0.0.0
@@ -26,7 +26,7 @@ library
   other-modules:
       Paths_scratchpad
   hs-source-dirs:
-      ./.
+      src
   default-extensions: BangPatterns BinaryLiterals BlockArguments ConstraintKinds DataKinds DefaultSignatures DeriveAnyClass DeriveDataTypeable DeriveGeneric DeriveLift DeriveTraversable DerivingStrategies EmptyCase ExistentialQuantification FlexibleContexts FlexibleInstances FunctionalDependencies GeneralizedNewtypeDeriving HexFloatLiterals InstanceSigs KindSignatures LambdaCase NamedFieldPuns NegativeLiterals NoImplicitPrelude NumericUnderscores OverloadedStrings PackageImports RankNTypes ScopedTypeVariables StandaloneDeriving StrictData TupleSections TypeApplications TypeOperators
   ghc-options: -Wall
   build-depends:
