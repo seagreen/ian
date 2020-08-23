@@ -1,3 +1,6 @@
 resolver: lts-14.18
 extra-deps:
   - data-sword-0.2.0.2
+
+  - github: mitchellwrosen/ki
+    commit: 66bf63ac7b38a7b7b35e8b828bb466a63015309c

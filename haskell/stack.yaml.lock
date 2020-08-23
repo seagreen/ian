@@ -11,6 +11,17 @@ packages:
       sha256: 5148efd3ab98e8e81c1818eb57586d565b7e2fcfe0618b3ad5e13f78e69413ac
   original:
     hackage: data-sword-0.2.0.2
+- completed:
+    size: 22016
+    url: https://github.com/mitchellwrosen/ki/archive/66bf63ac7b38a7b7b35e8b828bb466a63015309c.tar.gz
+    name: ki
+    version: '0'
+    sha256: c244e5869443d65a5c152fac7b0d6c89e01d1d20701218ca6b4c7c27ad46ca42
+    pantry-tree:
+      size: 2129
+      sha256: b048f29847bf813aedf04d2d255c45658c3d936e514abb9fd0766882a7f824ec
+  original:
+    url: https://github.com/mitchellwrosen/ki/archive/66bf63ac7b38a7b7b35e8b828bb466a63015309c.tar.gz
 snapshots:
 - completed:
     size: 524789
