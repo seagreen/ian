@@ -43,8 +43,10 @@ dependencies:
 
   # Notable
 
-  - data-sword
+  # - data-sword
+  - extra
   - hspec
+  - ki
   - main-tester
   - megaparsec
   - parser-combinators

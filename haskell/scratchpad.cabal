@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 046636f4c52edde17f9f0f0210cad96f08e355bbd080c687074e6034568e3089
+-- hash: 5ac8ee6dcd9571da8611879b924856ad8beac68d12e423006c7df9484cd46730
 
 name:           scratchpad
 version:        0.0.0
@@ -13,6 +13,7 @@ build-type:     Simple
 library
   exposed-modules:
       ApplicativeParser
+      KiExperiment
       Megaparsec
       MonoidLexer
       ProfunctorParser
@@ -37,11 +38,12 @@ library
     , comonad
     , containers
     , contravariant
-    , data-sword
     , directory
+    , extra
     , filepath
     , hashable
     , hspec
+    , ki
     , lens
     , main-tester
     , megaparsec
@@ -81,11 +83,12 @@ test-suite spec
     , comonad
     , containers
     , contravariant
-    , data-sword
     , directory
+    , extra
     , filepath
     , hashable
     , hspec
+    , ki
     , lens
     , main-tester
     , megaparsec

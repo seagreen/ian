@@ -5,13 +5,6 @@
 
 packages:
 - completed:
-    hackage: data-sword-0.2.0.2@sha256:997c73059441e4fdde7919965b228a373a6a0ce1150edf4985d0bc3f6e7f278d,1457
-    pantry-tree:
-      size: 439
-      sha256: 5148efd3ab98e8e81c1818eb57586d565b7e2fcfe0618b3ad5e13f78e69413ac
-  original:
-    hackage: data-sword-0.2.0.2
-- completed:
     size: 22016
     url: https://github.com/mitchellwrosen/ki/archive/66bf63ac7b38a7b7b35e8b828bb466a63015309c.tar.gz
     name: ki
@@ -24,7 +17,7 @@ packages:
     url: https://github.com/mitchellwrosen/ki/archive/66bf63ac7b38a7b7b35e8b828bb466a63015309c.tar.gz
 snapshots:
 - completed:
-    size: 524789
-    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/14/18.yaml
-    sha256: 646be71223e08234131c6989912e6011e01b9767bc447b6d466a35e14360bdf2
-  original: lts-14.18
+    size: 531718
+    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/16/6.yaml
+    sha256: 230a7266fc11f76222bd3bb68e9503ed11d553060a752f164bff6753ed03e271
+  original: lts-16.6
