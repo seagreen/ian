@@ -6,11 +6,11 @@
 
 ### Static analysis of parsers
 
-+ [Applicative example](./haskell/src/ApplicativeParser.hs)
++ [Applicative example](./haskell/src/Scratch/ApplicativeParser.hs)
 
-+ [Profunctor example](./haskell/src/ProfunctorParser.hs)
++ [Profunctor example](./haskell/src/Scratch/ProfunctorParser.hs)
 
-+ [Monoid (lexer) example](./haskell/src/MonoidLexer.hs)
++ [Monoid (lexer) example](./haskell/src/Scratch/MonoidLexer.hs)
 
 Monadic parser combinators are popular, but this comes at the expense of static analysis.
 
@@ -24,7 +24,7 @@ Examples of Applicative and Profunctor based parsers are provided, as well as a 
 
 ### Aligned typeclass comparison
 
-Visually aligned type signatures for [transformation-related typeclasses](./haskell/src/TransformationTypeclasses.hs).
+Visually aligned type signatures for [transformation-related typeclasses](./haskell/src/Scratch/TransformationTypeclasses.hs).
 
 # Issue tracker
 
