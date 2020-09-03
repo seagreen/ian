@@ -11,7 +11,7 @@ class Strong f where
   second' :: f a b -> f (c, a) (c, b)
 
 -- * Example
---
+
 -- Model an assembly line using Haskell.
 --
 -- Assembly lines can't run Haskell code, so we can't make them Functors.

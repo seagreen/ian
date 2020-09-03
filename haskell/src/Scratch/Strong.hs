@@ -3,9 +3,9 @@ module Scratch.Strong where
 
 import Control.Category
 import Data.Profunctor
+import Scratch.Prelude hiding ((.))
 import Test.Hspec
 import UnliftIO.Exception
-import Scratch.Prelude hiding ((.))
 
 -- | Say we want to create an EDSL for deciding
 -- whether or not to restart a machine in a factory.
@@ -82,7 +82,7 @@ restartMachine (Internal f) =
   f ()
 
 -- * Let's try it out.
---
+
 -- In the body of the examples we're looking at things
 -- from the user's perspective, so we won't use @Internal@.
 
