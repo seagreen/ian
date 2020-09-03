@@ -6,6 +6,7 @@ import qualified Scratch.MonoidLexer
 import Scratch.Prelude
 import qualified Scratch.ProfunctorParser
 import qualified Scratch.StaticMonad
+import qualified Scratch.StaticMonadManual
 import qualified Scratch.StaticMonadProblem
 import qualified Scratch.Strong
 import Test.Hspec
@@ -17,6 +18,7 @@ main =
     Scratch.Megaparsec.spec
     Scratch.MonoidLexer.spec
     Scratch.ProfunctorParser.spec
-    Scratch.StaticMonad.spec
     Scratch.StaticMonadProblem.spec
+    Scratch.StaticMonadManual.spec
+    Scratch.StaticMonad.spec
     Scratch.Strong.spec
