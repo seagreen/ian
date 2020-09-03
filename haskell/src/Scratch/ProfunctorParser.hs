@@ -8,8 +8,8 @@ import qualified Data.Char as Char
 import Data.Profunctor
 import qualified Data.Set as Set
 import qualified Data.Text as Text
-import Test.Hspec
 import Scratch.Prelude hiding ((.))
+import Test.Hspec
 
 data Parser a b = Parser
   { keywords :: Set Keyword,

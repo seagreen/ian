@@ -3,8 +3,8 @@ module Scratch.MonoidLexer where
 
 import qualified Data.Set as Set
 import qualified Data.Text as Text
-import Test.Hspec
 import Scratch.Prelude
+import Test.Hspec
 
 data Lexer a = Lexer
   { keywords :: Set Keyword,

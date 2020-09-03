@@ -2,8 +2,8 @@ module Scratch.StaticMonadProblem where
 
 import qualified Data.ByteString as BS
 import qualified Data.Set as Set
-import Test.Hspec
 import Scratch.Prelude hiding (readFile, writeFile)
+import Test.Hspec
 
 -- * API
 
