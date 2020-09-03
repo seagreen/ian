@@ -1,6 +1,6 @@
 module Scratch.StaticMonad where
 
-import qualified Data.ByteString as BS
+-- import qualified Data.ByteString as BS
 import qualified Data.Set as Set
 import Scratch.Prelude hiding (readFile, writeFile)
 import Test.Hspec
@@ -39,20 +39,38 @@ runScript (InternalScript _ io) =
 
 writeFile :: FilePath -> IO ByteString -> Script (IO ())
 writeFile path ioBts =
-  InternalScript (Set.singleton path) (ioBts >>= BS.writeFile path)
+  InternalScript
+    (Set.singleton path)
+    -- (ioBts >>= BS.writeFile path)
+    (ioBts *> putStrLn ("Writing: " <> path))
 
 readFile :: FilePath -> Script (IO ByteString)
 readFile path =
-  InternalScript mempty (BS.readFile path)
+  InternalScript
+    mempty
+    -- (BS.readFile path)
+    (putStrLn ("Reading: " <> path) *> pure "abc")
 
 -- * Example
 
+-- setupComputer :: Script (IO ())
+-- setupComputer = do
+--   read1 <- readFile "~/Dropbox/my-config-1.json"
+--   read2 <- readFile "~/Dropbox/my-config-2.json"
+--   _ <- writeFile "~/config-1.json" read1 -- TROUBLE!
+--   writeFile "~/config-2.json" read2
+
 setupComputer :: Script (IO ())
 setupComputer = do
-  c1 <- readFile "~/Dropbox/my-config-1.json"
-  c2 <- readFile "~/Dropbox/my-config-2.json"
-  _ <- writeFile "~/config-1.json" c1 -- TROUBLE!
-  writeFile "~/config-2.json" c2
+  read1 <- readFile "~/Dropbox/my-config-1.json"
+  read2 <- readFile "~/Dropbox/my-config-2.json"
+  write1 <- writeFile "~/config-1.json" read1
+  write2 <- writeFile "~/config-2.json" read2
+  pure (write1 *> write2)
+
+runSetupComputer :: IO ()
+runSetupComputer =
+  runScript setupComputer
 
 -- * Test
 
