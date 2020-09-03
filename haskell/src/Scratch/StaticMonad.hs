@@ -2,8 +2,8 @@ module Scratch.StaticMonad where
 
 import qualified Data.ByteString as BS
 import qualified Data.Set as Set
-import Test.Hspec
 import Scratch.Prelude hiding (readFile, writeFile)
+import Test.Hspec
 
 -- * API
 
@@ -51,7 +51,7 @@ setupComputer :: Script (IO ())
 setupComputer = do
   c1 <- readFile "~/Dropbox/my-config-1.json"
   c2 <- readFile "~/Dropbox/my-config-2.json"
-  writeFile "~/config-1.json" c1
+  _ <- writeFile "~/config-1.json" c1 -- TROUBLE!
   writeFile "~/config-2.json" c2
 
 -- * Test
