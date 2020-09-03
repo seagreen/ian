@@ -1,4 +1,4 @@
-module SExpression where
+module Scratch.SExpression where
 
 -- http://www-formal.stanford.edu/jmc/recursive.pdf
 -- Recursive Functions of Symbolic Expressions and Their Computation by Machine, Part I

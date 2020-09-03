@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 7e6f1ae1ff2847c38174862128ef83773a4fbb95d07ddc56809ed4889ae5790a
+-- hash: a1ae78988eadd987f6e203dc685160e1cf55af42008a91069fbf8f320c002bd8
 
 name:           scratchpad
 version:        0.0.0
@@ -12,20 +12,20 @@ build-type:     Simple
 
 library
   exposed-modules:
-      ApplicativeParser
-      KiExperiment
-      Megaparsec
-      MonoidLexer
-      ProfunctorParser
-      ScratchPrelude
-      SExpression
-      StaticMonad
-      StaticMonadProblem
-      StmOnChange
-      Strong
-      StrongCategory
-      TransformationTypeclasses
-      Utf8
+      Scratch.ApplicativeParser
+      Scratch.KiExperiment
+      Scratch.Megaparsec
+      Scratch.MonoidLexer
+      Scratch.Prelude
+      Scratch.ProfunctorParser
+      Scratch.SExpression
+      Scratch.StaticMonad
+      Scratch.StaticMonadProblem
+      Scratch.StmOnChange
+      Scratch.Strong
+      Scratch.StrongCategory
+      Scratch.TransformationTypeclasses
+      Scratch.Utf8
   other-modules:
       Paths_scratchpad
   hs-source-dirs:

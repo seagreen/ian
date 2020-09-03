@@ -1,15 +1,15 @@
 -- | Demonstration of static analysis with an Profunctor-based parser.
 --
 -- + This is a toy example showing tracking of keywords.
-module ProfunctorParser where
+module Scratch.ProfunctorParser where
 
 import Control.Category
 import qualified Data.Char as Char
 import Data.Profunctor
 import qualified Data.Set as Set
 import qualified Data.Text as Text
-import ScratchPrelude hiding ((.))
 import Test.Hspec
+import Scratch.Prelude hiding ((.))
 
 data Parser a b = Parser
   { keywords :: Set Keyword,

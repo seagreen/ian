@@ -1,7 +1,7 @@
 -- | Use:
 --
 -- > stack eval KiExperiment.test
-module KiExperiment where
+module Scratch.KiExperiment where
 
 import Control.Concurrent (forkIO, threadDelay)
 import qualified Ki.Lite as Ki

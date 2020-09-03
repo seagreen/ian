@@ -1,12 +1,12 @@
 -- | Demonstration of static analysis with an Applicative parser.
 --
 -- + This is a toy example showing tracking of keywords.
-module ApplicativeParser where
+module Scratch.ApplicativeParser where
 
 import qualified Data.Set as Set
 import qualified Data.Text as Text
-import ScratchPrelude
 import Test.Hspec
+import Scratch.Prelude
 
 data Parser a = Parser
   { keywords :: Set Keyword,

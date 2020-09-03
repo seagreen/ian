@@ -1,53 +1,59 @@
-module StaticMonad where
+module Scratch.StaticMonadProblem where
 
 import qualified Data.ByteString as BS
 import qualified Data.Set as Set
-import ScratchPrelude hiding (readFile, writeFile)
 import Test.Hspec
+import Scratch.Prelude hiding (readFile, writeFile)
 
 -- * API
 
 data Script a = InternalScript
   { internalFilesToBeWrittenTo :: Set FilePath,
-    internalAction :: a
+    internalAction :: IO a
   }
   deriving stock (Functor)
 
 instance Applicative Script where
   pure :: a -> Script a
   pure a =
-    InternalScript mempty a
+    InternalScript mempty (pure a)
 
   (<*>) :: Script (a -> b) -> Script a -> Script b
   InternalScript xs f <*> InternalScript ys a =
-    InternalScript (xs <> ys) (f a)
+    InternalScript (xs <> ys) (f <*> a)
 
 instance Monad Script where
   (>>=) :: Script a -> (a -> Script b) -> Script b
-  InternalScript xs a >>= f =
-    let InternalScript ys b = f a
-     in InternalScript (xs <> ys) b
+  InternalScript xs ioA >>= f =
+    InternalScript
+      xs
+      ( ioA >>= \a -> case f a of
+          InternalScript _ b ->
+            b
+      )
 
 -- | Files the script will write to.
 analyzeScript :: Script a -> Set FilePath
 analyzeScript (InternalScript xs _) =
   xs
 
-runScript :: Script (IO a) -> IO a
+runScript :: Script a -> IO a
 runScript (InternalScript _ io) =
   io
 
-writeFile :: FilePath -> IO ByteString -> Script (IO ())
-writeFile path ioBts =
-  InternalScript (Set.singleton path) (ioBts >>= BS.writeFile path)
+data Result a = InternalResult a
 
-readFile :: FilePath -> Script (IO ByteString)
+writeFile :: FilePath -> Result ByteString -> Script ()
+writeFile path (InternalResult bts) =
+  InternalScript (Set.singleton path) (BS.writeFile path bts)
+
+readFile :: FilePath -> Script (Result ByteString)
 readFile path =
-  InternalScript mempty (BS.readFile path)
+  InternalScript mempty (InternalResult <$> BS.readFile path)
 
 -- * Example
 
-setupComputer :: Script (IO ())
+setupComputer :: Script ()
 setupComputer = do
   c1 <- readFile "~/Dropbox/my-config-1.json"
   c2 <- readFile "~/Dropbox/my-config-2.json"
@@ -59,6 +65,9 @@ setupComputer = do
 spec :: Spec
 spec = do
   describe "static monad" $ do
-    it "analyzes correctly" $ do
+    -- it "analyzes correctly" $ do
+    --   analyzeScript setupComputer
+    --     `shouldBe` Set.fromList ["~/config-1.json", "~/config-2.json"]
+    it "misses writes!!" $ do
       analyzeScript setupComputer
-        `shouldBe` Set.fromList ["~/config-1.json", "~/config-2.json"]
+        `shouldBe` Set.fromList mempty

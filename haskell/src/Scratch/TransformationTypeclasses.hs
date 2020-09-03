@@ -1,5 +1,5 @@
 {- ORMOLU_DISABLE -}
-module TransformationTypeclasses where
+module Scratch.TransformationTypeclasses where
 
 import Control.Category (Category)
 import Control.Comonad (Comonad)

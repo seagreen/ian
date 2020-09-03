@@ -1,4 +1,4 @@
-module StmOnChange where
+module Scratch.StmOnChange where
 
 import Control.Concurrent
 import Control.Concurrent.STM (retry)

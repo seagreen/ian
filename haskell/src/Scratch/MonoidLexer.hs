@@ -1,10 +1,10 @@
 -- | Demonstration of static analysis with a Monoid-equipped lexer.
-module MonoidLexer where
+module Scratch.MonoidLexer where
 
 import qualified Data.Set as Set
 import qualified Data.Text as Text
-import ScratchPrelude
 import Test.Hspec
+import Scratch.Prelude
 
 data Lexer a = Lexer
   { keywords :: Set Keyword,

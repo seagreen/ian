@@ -1,5 +1,5 @@
 -- | Notes on megaparsec.
-module Megaparsec where
+module Scratch.Megaparsec where
 
 -- parser-combinators (http://hackage.haskell.org/package/parser-combinators):
 --

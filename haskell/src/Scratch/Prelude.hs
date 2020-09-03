@@ -1,5 +1,5 @@
-module ScratchPrelude
-  ( module ScratchPrelude,
+module Scratch.Prelude
+  ( module Scratch.Prelude,
     module X,
   )
 where

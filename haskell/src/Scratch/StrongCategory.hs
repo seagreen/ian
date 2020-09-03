@@ -1,9 +1,9 @@
-module StrongCategory where
+module Scratch.StrongCategory where
 
 import Control.Category
 import Data.Align
 import Data.These
-import ScratchPrelude hiding ((.))
+import Scratch.Prelude hiding ((.))
 
 class Strong f where
   first' :: f a b -> f (a, c) (b, c)

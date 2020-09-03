@@ -1,4 +1,4 @@
-module Utf8 where
+module Scratch.Utf8 where
 
 -- import Data.ShortWord
 

@@ -1,11 +1,11 @@
 -- | What's the Strong typeclass good for?
-module Strong where
+module Scratch.Strong where
 
 import Control.Category
 import Data.Profunctor
-import ScratchPrelude hiding ((.))
 import Test.Hspec
 import UnliftIO.Exception
+import Scratch.Prelude hiding ((.))
 
 -- | Say we want to create an EDSL for deciding
 -- whether or not to restart a machine in a factory.
